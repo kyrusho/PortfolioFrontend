@@ -1,0 +1,15 @@
+# version: '3.8'
+
+services:
+  haitham-portfolio-fe:
+    image:  haitham-portfolio-fe
+    container_name:  haitham-portfolio-fe
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILD_MODE=development
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src

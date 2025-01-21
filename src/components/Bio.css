@@ -1,0 +1,57 @@
+.bioPage {
+    background: linear-gradient(180deg, #87cefa, #ff69b4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'Pokemon', sans-serif;
+}
+
+h2 {
+    font-size: 3rem;
+    text-shadow: 0px 0px 10px #fff;
+    margin-bottom: 20px;
+}
+
+.bioCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bioCard {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.bioCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+.bioCard h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.bioCard p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Fade-in animation for cards */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

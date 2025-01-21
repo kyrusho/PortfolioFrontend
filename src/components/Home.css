@@ -1,0 +1,114 @@
+.homePage {
+    background: linear-gradient(180deg, #ff69b4, #87cefa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pokemon', sans-serif;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Sparkling Stars Effect */
+@keyframes sparkle {
+    0% { transform: scale(0.5); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+.matrixRain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.matrixColumn {
+    position: absolute;
+    top: -200px;
+    width: 10px;
+    font-size: 1rem;
+    color: rgba(255, 182, 193, 0.8);
+    animation: sparkle 4s infinite alternate ease-in-out;
+    animation-delay: calc(-4s * var(--delay));
+}
+
+.matrixColumn span {
+    display: block;
+    opacity: 0.1;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+/* Welcome Text */
+.welcomeText {
+    z-index: 2;
+    text-align: center;
+    color: #ffebcd;
+}
+
+h4 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 10px #ff69b4;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 15px #87cefa;
+}
+
+.paragraph {
+    font-size: 1.2rem;
+    max-width: 400px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* BIO Cards */
+.bioCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.bioCard {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.bioCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+.bioCard h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.bioCard p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Fade-in animation for cards */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
