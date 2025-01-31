@@ -24,12 +24,14 @@
     box-shadow: 0px 12px 20px rgba(255, 105, 180, 0.6);
 }
 
+
 .welcomePage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ensures the section takes at least the full viewport height */
+    height: auto; /* Allows the content to expand beyond the viewport */    width: 100%; /* Ensure it spans the full width */
     background: linear-gradient(180deg, #f8e9e9, #b3d0e1); 
     color: #333; 
     text-align: center;
@@ -37,12 +39,18 @@
     overflow: hidden;
 }
 
+
+
+
 .welcomeText h1 {
     font-size: 4rem;
     text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
     color: #333; 
     font-family: 'Source Code Pro', 'Courier New', monospace;
+    position: relative; /* Ensures it stacks above the matrix */
     font-weight: 700; 
+    z-index: 2; /* Higher z-index to place it above the matrix */
+    padding-top: 10%;
 }
 
 
@@ -60,8 +68,9 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 0;
+    z-index: 0; 
 }
+
 
 .matrixColumn {
     position: absolute;
@@ -119,7 +128,7 @@
     background: url('https://i.gifer.com/origin/6e/6eaee5ed77215266544cf20ff93ac4c5_w200.gif') no-repeat center;
     background-size: cover;
     animation: butterflyMovement 12s infinite ease-in-out;
-    z-index: 1;
+    z-index: 1; /* Set z-index to -1 to keep them in the background */
     opacity: 0.9;
 }
 
@@ -155,4 +164,147 @@
     0% { transform: scale(0.5); opacity: 0.5; }
     50% { transform: scale(1.2); opacity: 1; }
     100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+.aboutMeContainer {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center the content */
+    justify-content: center;
+    gap: 20px; /* Adjust gap between the photo and text */
+}
+
+.photoWrapper {
+    flex-shrink: 0;
+    width: 300px;  /* Increased size */
+    height: 300px; /* Increased size */
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profilePhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add this to the <head> section of your HTML or import in your CSS */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.infoWrapper {
+    text-align: center; /* Center the text under the photo */
+    max-width: 70%;
+    font-family: 'Patrick Hand', cursive; /* Handwritten font */
+}
+
+.infoWrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Patrick Hand', cursive; /* Handwritten font */
+}
+
+.infoWrapper p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-family: 'Patrick Hand', cursive; /* Handwritten font */
+}
+#skills-section {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; /* Reduced gap between sections */
+}
+
+#skills-section h2 {
+    font-family: 'Patrick Hand', cursive;
+    padding-top: 2%; /* Reduced padding-top */
+}
+
+.languages-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced gap between language items */
+    padding-bottom: 3%; /* Reduced padding-bottom */
+}
+
+.language-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.language-flag {
+    width: 4rem;
+    height: auto;
+    transition: transform 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.language-name {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1rem;
+    color: #333;
+}
+
+.language-item:hover .language-flag {
+    transform: scale(1.1);
+}
+
+#skills-section .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced gap between skill items */
+    padding-bottom: 3%; /* Reduced padding-bottom */
+}
+
+#skills-section i {
+    font-size: 6rem;
+    color: #30384d;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-item i:hover {
+    transform: scale(1.2);
+    color: #4e7c7f;
+}
+
+.skill-icon {
+    width: 4rem;  /* Adjust this value to control the icon size */
+    height: 4rem; /* Ensure the aspect ratio remains square */
+    object-fit: contain;  /* Maintain the aspect ratio */
+    transition: transform 0.3s ease;  /* Add smooth scaling effect */
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.2);  /* Slightly enlarge the icon on hover */
+}
+
+
+.skill-name {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1rem;
+    color: #333;
+}
+
+@media (max-width: 992px) {
+    #skills-section i {
+        font-size: 5rem;
+    }
 }

@@ -1,12 +1,12 @@
+import Comment from '../components/Comment';
 import Footer from '../components/Footer';
-import Welcome from '../components/Welcome';
 import '../components/Welcome.css';
 
 
-export default function WelcomePage(): JSX.Element {
+export default function CommentsPage(): JSX.Element {
   return (
     <div>
-      <Welcome />
+        <Comment/>
       <Footer/>
     </div>
   );
