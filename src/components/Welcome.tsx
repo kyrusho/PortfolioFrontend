@@ -103,7 +103,7 @@ const Welcome: React.FC = (): JSX.Element => {
   <div className="aboutMeContainer">
     <div className="photoWrapper">
       <img
-        src="https://media.licdn.com/dms/image/v2/D5603AQGzUIoZ5638xw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727396349341?e=1743638400&v=beta&t=ZTerhmnA_LkrQZHUFXrBjeRGWg_QYzsdUJXg8Hqrw3A"
+        src="https://media.licdn.com/dms/image/v2/D5603AQGzUIoZ5638xw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727396349341?e=1744848000&v=beta&t=hTW9On39rHDX-VLYy0jWDQ1z2RCiiTUTQnowgNeacAE"
         alt="Profile"
         className="profilePhoto"
       />
