@@ -13,6 +13,8 @@ import csharpIcon from './assets/c-sharp.png'
 import databaseIcon from './assets/database.png'
 import gitIcon from './assets/git.png'
 import javaIcon from './assets/java.png'
+import ProjectList from './ProjectList';
+
 
 
 
@@ -40,6 +42,33 @@ const Welcome: React.FC = (): JSX.Element => {
     }
     return columns;
   };
+
+    const [,setIsHaitham] = useState<boolean>(false);
+
+
+  useEffect(() => {
+    const fetchUserRoles = async () => {
+      const accessToken = localStorage.getItem('access_token');
+      if (!accessToken) {
+        console.error('No access token found');
+        setIsHaitham(false);
+        return;
+      }
+
+      try {
+        const base64Url = accessToken.split('.')[1];
+        const decodedPayload = JSON.parse(atob(base64Url));
+        const roles = decodedPayload['https://portfolio/roles'] || [];
+
+        setIsHaitham(roles.includes('Haitham'));
+      } catch (err) {
+        console.error('Error decoding user roles:', err);
+        setIsHaitham(false);
+      }
+    };
+
+    fetchUserRoles();
+  }, []);
 
   const [matrixColumns, setMatrixColumns] = useState<JSX.Element[]>([]);
 
@@ -147,6 +176,11 @@ Outside of career and academics, I enjoy photography, cinematography, and travel
   </div>
 </div>
 
+{/* Project List Section */}
+<div id="projects">
+<h2>Projects</h2>
+          <ProjectList /> 
+        </div>
         
     </div>
     </div>

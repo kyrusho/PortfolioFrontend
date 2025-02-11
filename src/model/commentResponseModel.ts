@@ -3,4 +3,5 @@ export interface commentResponseModel {
     author: string;
     content: string; 
     dateSubmitted: string; 
+    approved: boolean;
 }
