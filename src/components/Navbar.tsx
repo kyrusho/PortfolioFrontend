@@ -65,14 +65,15 @@ const Navbar: React.FC = (): JSX.Element => {
           <Link to="/">Home</Link>
         </li>
         <li className="navbarItem">
-          <Link to="/">BIO</Link>
+          <a href="#bio">BIO</a>
         </li>
         <li className="navbarItem">
-          <Link to="/">Skills</Link>
+          <a href="#skills-section">Skills</a>
         </li>
         <li className="navbarItem">
-          <Link to="/">Projects</Link>
+          <a href="#projects">Projects</a>
         </li>
+
         <li className="navbarItem">
           <Link to="/comments">Comments</Link>
         </li>
