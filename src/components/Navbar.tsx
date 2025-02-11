@@ -1,60 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { useTranslation } from 'react-i18next';
 
 const Navbar: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track login status
-
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isHaitham, setIsHaitham] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check if the user is logged in based on the presence of an Auth0 token
-    const token = localStorage.getItem('auth_token');
+    // Check if user is authenticated based on the presence of an access token
+    const token = localStorage.getItem('access_token');
     if (token) {
       setIsAuthenticated(true);
+      fetchUserRoles(token);
     }
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+  const fetchUserRoles = (token: string) => {
+    try {
+      const base64Url = token.split('.')[1];
+      const decodedPayload = JSON.parse(atob(base64Url));
+      const roles = decodedPayload['https://portfolio/roles'] || []; // Replace with your actual namespace
+
+      setIsHaitham(roles.includes('Haitham')); // Check if user has the "Haitham" role
+    } catch (err) {
+      console.error('Error decoding user roles:', err);
+      setIsHaitham(false);
     }
   };
-
-  
-const [isHaitham, setIsHaitham] = useState<boolean>(false); // State to check if the user has the "Zako" role
-
-  useEffect(() => {
-    const fetchUserRoles = async () => {
-      const accessToken = localStorage.getItem('access_token');
-      if (!accessToken) {
-        console.error('No access token found');
-        setIsHaitham(false);
-        return;
-      }
-
-      try {
-        const base64Url = accessToken.split('.')[1];
-        const decodedPayload = JSON.parse(atob(base64Url));
-        const roles = decodedPayload['https://portfolio/roles'] || []; // Replace with your namespace
-
-        setIsHaitham(roles.includes('Haitham')); // Check if the user has the "Zako" role
-      } catch (err) {
-        console.error('Error decoding user roles:', err);
-        setIsHaitham(false);
-      }
-    };  
-    fetchUserRoles(); // Fetch and check user roles
-  }, []);
-  
-    
 
   const handleLoginRedirect = () => {
     setLoading(true);
@@ -72,33 +45,47 @@ const [isHaitham, setIsHaitham] = useState<boolean>(false); // State to check if
       `prompt=login`;
   };
 
+  const handleLogout = () => {
+    // Remove authentication tokens from storage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('auth_token');
+    sessionStorage.clear();
+
+    setIsAuthenticated(false);
+    setIsHaitham(false);
+
+    // Redirect to home page after logout
+    window.location.href = '/';
+  };
+
   return (
     <nav className="navbar">
       <ul className="navbarList">
-        <li onClick={() => scrollToSection('home')} className="navbarItem">
+        <li className="navbarItem">
           <Link to="/">Home</Link>
         </li>
-        <li onClick={() => scrollToSection('bio')} className="navbarItem">
+        <li className="navbarItem">
           <Link to="/">BIO</Link>
         </li>
-        <li onClick={() => scrollToSection('skills-section')} className="navbarItem">
+        <li className="navbarItem">
           <Link to="/">Skills</Link>
         </li>
-        <li onClick={() => scrollToSection('projects')} className="navbarItem">
+        <li className="navbarItem">
           <Link to="/">Projects</Link>
         </li>
         <li className="navbarItem">
           <Link to="/comments">Comments</Link>
         </li>
 
-                {isAuthenticated && isHaitham && (
+        {/* Show Admin Dashboard if the user is authenticated and has the "Haitham" role */}
+        {isAuthenticated && isHaitham && (
           <li className="navbarItem">
             <Link to="/kyrushoAdmin">Admin Dashboard</Link>
           </li>
         )}
 
-        {/* Conditionally render the login button */}
-        {!isAuthenticated && (
+        {/* Show login button if not authenticated, otherwise show logout button */}
+        {!isAuthenticated ? (
           <button
             className={`loginButton ${loading ? 'loading' : ''}`}
             onClick={handleLoginRedirect}
@@ -106,13 +93,11 @@ const [isHaitham, setIsHaitham] = useState<boolean>(false); // State to check if
           >
             {loading ? 'Redirecting...' : 'Login'}
           </button>
+        ) : (
+          <button className="loginButton" onClick={handleLogout}>
+            Logout
+          </button>
         )}
-
-<button onClick={() => changeLanguage('en')}>🇺🇸 English</button>
-<button onClick={() => changeLanguage('fr')}>🇫🇷 Français</button>
-
-
-
       </ul>
     </nav>
   );

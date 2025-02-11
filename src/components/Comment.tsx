@@ -84,7 +84,7 @@ const Comment: React.FC = (): JSX.Element => {
         <h1>Comments</h1>
       </div>
       <button className="comment-button" onClick={() => setShowCommentForm(!showCommentForm)}>
-        {showCommentForm ? 'Cancel' : 'Leave a Comment'}
+        {showCommentForm ? 'Close' : 'Leave a Comment'}
       </button>
 
       {showCommentForm && (
