@@ -33,7 +33,7 @@
 
 
 .comment {
-    background: linear-gradient(135deg, #6a11cb, #2575fc); 
+    background: linear-gradient(135deg, #eae5f7, #c4bfef); 
     border-radius: 10px;
     padding: 1.5rem;
     margin: 10px 0;
@@ -51,6 +51,7 @@
     font-size: 1.1rem;
     font-family: 'Patrick Hand', cursive; 
     line-height: 1.6;
+    color: #ffffff;
 }
 
 .comment p strong {
