@@ -47,12 +47,12 @@
     font-size: 1.8rem; /* Reduced font size */
     font-weight: bold;
     margin-bottom: 10px; /* Reduced margin */
-    color: #333; /* Dark text for readability */
+    color: #ffffff; /* Dark text for readability */
 }
 
 .project-description {
     font-size: 1rem; /* Reduced font size */
-    color: #5b5858;
+    color: #c4c2c2;
     line-height: 1.6;
 }
 
