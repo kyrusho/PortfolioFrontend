@@ -6,6 +6,7 @@ import { commentRequestModel } from '../model/commentRequestModel';
 import { addComment } from '../axios/addComment';
 import { getApprovedComments } from '../axios/getComments';
 import { deleteComment } from '../axios/commentActions';
+import { useTranslation } from 'react-i18next';
 
 const Comment: React.FC = (): JSX.Element => {
   const [comments, setComments] = useState<commentResponseModel[]>([]);
@@ -15,6 +16,7 @@ const Comment: React.FC = (): JSX.Element => {
   const [errorContent, setErrorContent] = useState<string>('');
   const [showCommentForm, setShowCommentForm] = useState<boolean>(false);
   const [isHaitham, setIsHaitham] = useState<boolean>(false);
+  const { t } = useTranslation();  // Using the translation hook
 
   useEffect(() => {
     const fetchUserRoles = () => {
@@ -46,7 +48,7 @@ const Comment: React.FC = (): JSX.Element => {
 
   const handleCommentSubmit = async () => {
     if (!author || !content) {
-      setErrorContent('Please fill in both author and content.');
+      setErrorContent(t('pleaseFillInFields'));
       return;
     }
 
@@ -58,10 +60,10 @@ const Comment: React.FC = (): JSX.Element => {
       setAuthor('');
       setContent('');
       setErrorContent('');
-      alert('Comment submitted successfully! Awaiting approval.');
+      alert(t('commentSubmitted'));
     } catch (error) {
       console.error('Error submitting comment:', error);
-      setErrorContent('There was an error submitting your comment.');
+      setErrorContent(t('errorSubmittingComment'));
     } finally {
       setIsSubmitting(false);
     }
@@ -71,7 +73,7 @@ const Comment: React.FC = (): JSX.Element => {
     try {
       await deleteComment(commentId);
       setComments(comments.filter((c) => c.commentId !== commentId));
-      alert('Comment deleted!');
+      alert(t('commentDeleted'));
     } catch (error) {
       console.error('Error deleting comment:', error);
     }
@@ -81,10 +83,10 @@ const Comment: React.FC = (): JSX.Element => {
     <div className="commentsPage">
       <Navbar />
       <div className="commentsText">
-        <h1>Comments</h1>
+        <h1>{t('comments')}</h1>
       </div>
       <button className="comment-button" onClick={() => setShowCommentForm(!showCommentForm)}>
-        {showCommentForm ? 'Close' : 'Leave a Comment'}
+        {showCommentForm ? t('close') : t('leaveAComment')}
       </button>
 
       {showCommentForm && (
@@ -93,16 +95,16 @@ const Comment: React.FC = (): JSX.Element => {
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            placeholder="Your Name"
+            placeholder={t('yourName')}
           />
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Your Comment"
+            placeholder={t('yourComment')}
           />
           {errorContent && <p className="error-content">{errorContent}</p>}
           <button className="comment-button" onClick={handleCommentSubmit} disabled={isSubmitting}>
-            {isSubmitting ? 'Submitting...' : 'Leave Comment'}
+            {isSubmitting ? t('submitting') : t('leaveComment')}
           </button>
         </div>
       )}
@@ -115,7 +117,7 @@ const Comment: React.FC = (): JSX.Element => {
                 <strong>{comment.author}:</strong> {comment.content}
               </p>
               <p className="commentDate">
-                Submitted on: {new Date(comment.dateSubmitted).toLocaleString()}
+                {t('submittedOn')}: {new Date(comment.dateSubmitted).toLocaleString()}
               </p>
 
               {isHaitham && (
@@ -128,7 +130,7 @@ const Comment: React.FC = (): JSX.Element => {
             </div>
           ))
         ) : (
-          <p>No comments available.</p>
+          <p>{t('noCommentsAvailable')}</p>
         )}
       </div>
     </div>

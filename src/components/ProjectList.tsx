@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './ProjectList.css';
 import { projectResponseModel } from '../model/projectResponseModel';
 import { getAllProjects } from '../axios/getAllProjects';
+import { useTranslation } from 'react-i18next';
 
 const ProjectList: React.FC = (): JSX.Element => {
   const [projects, setProjects] = useState<projectResponseModel[]>([]);
   const [isZako, setIsZako] = useState<boolean>(false); // State to check if the user has the "Zako" role
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
+  const { t } = useTranslation();  // Using the translation hook
 
   useEffect(() => {
     const fetchUserRoles = async () => {
@@ -61,7 +63,7 @@ const ProjectList: React.FC = (): JSX.Element => {
   };
 
   if (loading) {
-    return <div>Loading projects...</div>;
+    return <div>{t('loadingProjects')}</div>;
   }
 
   return (
@@ -69,7 +71,7 @@ const ProjectList: React.FC = (): JSX.Element => {
       <div className="d-flex justify-content-between align-items-center mb-4">
         {isZako && (
           <button className="btn btn-primary" onClick={handleAddProject}>
-            Add
+            {t('add')}
           </button>
         )}
       </div>
@@ -77,14 +79,13 @@ const ProjectList: React.FC = (): JSX.Element => {
         {projects.length > 0 ? (
           projects.map((project) => (
             <div className="col-md-6 mb-4" key={project.projectId}>
-              {/* Show the "Update" button only if the user has the "Zako" role */}
               {isZako && (
                 <div className="d-flex justify-content-end mb-2">
                   <button
                     className="btn btn-secondary btn-sm"
                     onClick={() => handleUpdateProject(project.projectId)}
                   >
-                    Update
+                    {t('update')}
                   </button>
                 </div>
               )}
@@ -98,7 +99,7 @@ const ProjectList: React.FC = (): JSX.Element => {
                         ? "https://github.com/Zako563/FootballDomain" 
                         : project.projectName === "Artwork Project"
                         ? "https://github.com/Zako563/ArtworkProject"
-                        :  project.projectName === "Portfolio Website"
+                        : project.projectName === "Portfolio Website"
                         ? "https://github.com/Zako563/Portfolio"
                         : "#"
                     } 
@@ -132,7 +133,7 @@ const ProjectList: React.FC = (): JSX.Element => {
             </div>
           ))
         ) : (
-          <p className="no-items">No projects available</p>
+          <p className="no-items">{t('noProjectsAvailable')}</p>
         )}
       </div>
     </div>

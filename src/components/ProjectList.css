@@ -4,7 +4,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    background: linear-gradient(180deg, #dafff0, #98c497); 
+    background: linear-gradient(135deg, #6a11cb, #2575fc); 
     position: relative;
     width: 80%; /* Reduced width for smaller containers */
     max-width: 500px; /* Added max-width for limiting container size */

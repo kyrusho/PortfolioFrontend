@@ -1,0 +1,99 @@
+{
+    "welcomePage": {
+      "greeting": "Hello World, I'm Haitham",
+      "butterflies": "Butterfly Effect",
+      "bioSection": {
+        "bioTitle": "About Me",
+        "bioDescription": "Hey! I'm Haitham, a student at Champlain College St-Lambert, studying Computer Science. I have a strong passion for software development and UX design, and I'm highly curious about AI and machine learning. Outside of career and academics, I enjoy photography, cinematography, and travelling the world!"
+      },
+      "skills": {
+        "title": "Skills",
+        "java": "Java",
+        "python": "Python",
+        "csharp": "C#",
+        "git": "Git",
+        "react": "React",
+        "databases": "Databases"
+      },
+      "languages": {
+        "title": "Languages",
+        "english": "English",
+        "french": "French",
+        "spanish": "Spanish",
+        "arabic": "Arabic",
+        "korean": "Korean"
+      },
+      "projects": "Projects"
+    },
+    "navbar": {
+      "home": "Home",
+      "bio": "BIO",
+      "skills": "Skills",
+      "projects": "Projects",
+      "comments": "Comments",
+      "adminDashboard": "Admin Dashboard",
+      "login": "Login",
+      "logout": "Logout",
+      "redirecting": "Redirecting..."
+    },
+    "footer": {
+      "contactTitle": "Contact Me",
+      "contactDescription": "If you have any questions or feedback, feel free to reach out to me.",
+      "leaveComment": {
+        "openForm": "Leave a Comment",
+        "closeForm": "Close",
+        "error": "Please fill in both author and content.",
+        "submitSuccess": "Comment submitted successfully! Awaiting approval.",
+        "submitError": "There was an error submitting your comment."
+      },
+      "followMe": "Follow Me",
+      "stayConnected": "Stay connected with me on social media:",
+      "downloadResume": "Download My Resume",
+      "resumeDescription": "Download my professional resume in both English and French.",
+      "resumeEN": "EN",
+      "resumeFR": "FR",
+      "rightsReserved": "© 2025 Haitham Nabihi. All rights reserved.",
+      "iconsMadeBy": "Icons made by",
+      "onFlaticon": "from www.flaticon.com"
+    },
+    
+        "addNewProject": "Add New Project",
+        "projectName": "Project Name",
+        "iconUrl": "Icon URL",
+        "gitRepo": "Git Repository",
+        "skills": "Skills",
+        "addProject": "Add Project",
+        "projectAddedSuccessfully": "Project added successfully!",
+        "failedToAddProject": "Failed to add project.",
+        "selectSkills": "Select skills by clicking on logos",
+        "adminDashboard": "Admin Dashboard",
+  "commentApproved": "Comment approved!",
+  "commentDeleted": "Comment deleted!",
+  "accessDenied": "Access Denied.",
+  "noPendingComments": "No pending comments available.",
+  "submittedOn": "Submitted on",
+
+  "comments": "Comments",
+  "leaveAComment": "Leave a Comment",
+  "close": "Close",
+  "yourName": "Your Name",
+  "yourComment": "Your Comment",
+  "leaveComment": "Leave Comment",
+  "submitting": "Submitting...",
+  "commentSubmitted": "Comment submitted successfully! Awaiting approval.",
+  "errorSubmittingComment": "There was an error submitting your comment.",
+  "noCommentsAvailable": "No comments available.",
+  "pleaseFillInFields": "Please fill in both author and content.",
+  "loadingProjects": "Loading projects...",
+  "add": "Add",
+  "update": "Update",
+  "noProjectsAvailable": "No projects available",
+  "updateProject": "Update Project",
+  "projectIdMissing": "Project ID is missing.",
+  "projectUpdatedSuccess": "Project updated successfully!",
+  "projectUpdateFailed": "Failed to update project.",
+  "updateProjectButton": "Update Project"
+      
+      
+  }
+  

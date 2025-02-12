@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Welcome.css';
 import Navbar from './Navbar';
-import usa from './assets/united-states.png'
-import french from './assets/france.png'
-import arabic from './assets/morocco.png'
-import korean from './assets/south-korea.png'
-import spanish from './assets/spain.png'
-
-import pythonIcon from './assets/python.png'
-import reactIcon from './assets/atom.png'
-import csharpIcon from './assets/c-sharp.png'
-import databaseIcon from './assets/database.png'
-import gitIcon from './assets/git.png'
-import javaIcon from './assets/java.png'
+import usa from './assets/united-states.png';
+import french from './assets/france.png';
+import arabic from './assets/morocco.png';
+import korean from './assets/south-korea.png';
+import spanish from './assets/spain.png';
+import pythonIcon from './assets/python.png';
+import reactIcon from './assets/atom.png';
+import csharpIcon from './assets/c-sharp.png';
+import databaseIcon from './assets/database.png';
+import gitIcon from './assets/git.png';
+import javaIcon from './assets/java.png';
 import ProjectList from './ProjectList';
 
-
-
-
 const Welcome: React.FC = (): JSX.Element => {
+  const { t } = useTranslation();
+
   const createMatrixColumns = () => {
     const columns = [];
     for (let i = 0; i < 30; i++) {
@@ -43,8 +42,7 @@ const Welcome: React.FC = (): JSX.Element => {
     return columns;
   };
 
-    const [,setIsHaitham] = useState<boolean>(false);
-
+  const [, setIsHaitham] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUserRoles = async () => {
@@ -82,9 +80,9 @@ const Welcome: React.FC = (): JSX.Element => {
     <div>
       <div id="home" className="welcomePage">
         <div className="matrixRain">{matrixColumns}</div>
-        <Navbar/>
+        <Navbar />
         <div className="welcomeText">
-          <h1>Hello World, I'm Haitham</h1>
+          <h1>{t('welcomePage.greeting')}</h1>
           <br />
         </div>
         {[...Array(butterflyCount)].map((_, index) => (
@@ -99,92 +97,82 @@ const Welcome: React.FC = (): JSX.Element => {
           ></div>
         ))}
 
-<div id="bio" className="section">
-  <div className="aboutMeContainer">
-    <div className="photoWrapper">
-      <img
-        src="https://media.licdn.com/dms/image/v2/D5603AQGzUIoZ5638xw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727396349341?e=1744848000&v=beta&t=hTW9On39rHDX-VLYy0jWDQ1z2RCiiTUTQnowgNeacAE"
-        alt="Profile"
-        className="profilePhoto"
-      />
-    </div>
-    <div className="infoWrapper">
-      <p>Hey! I'm Haitham, a student at Champlain College St-Lambert, studying Computer Science. 
-        I have a strong passion for software development and UX design, and I'm highly curious about 
-        AI and machine learning.
-
-<br>
-</br>
-<br></br>
-Outside of career and academics, I enjoy photography, cinematography, and travelling the world!</p>
-    </div>
-
-  </div>
-</div>
-
-<div id="skills-section">
-  <h2>Skills</h2>
-  <div className="skills-container">
-    <div className="skill-item">
-      <img src={javaIcon} alt="Java" className="skill-icon" />
-      <span className="skill-name">Java</span>
-    </div>
-    <div className="skill-item">
-      <img src={pythonIcon} alt="Python" className="skill-icon" />
-      <span className="skill-name">Python</span>
-    </div>
-    <div className="skill-item">
-      <img src={csharpIcon} alt="C#" className="skill-icon" />
-      <span className="skill-name">C#</span>
-    </div>
-    <div className="skill-item">
-      <img src={gitIcon} alt="Git" className="skill-icon" />
-      <span className="skill-name">Git</span>
-    </div>
-    <div className="skill-item">
-      <img src={reactIcon} alt="React" className="skill-icon" />
-      <span className="skill-name">React</span>
-    </div>
-    <div className="skill-item">
-      <img src={databaseIcon} alt="Databases" className="skill-icon" />
-      <span className="skill-name">Databases</span>
-    </div>
-  </div>
-
-  <h2>Languages</h2>
-  <div className="languages-container">
-    <div className="language-item">
-      <img src={usa} alt="English" className="language-flag" />
-      <span className="language-name">English</span>
-    </div>
-    <div className="language-item">
-      <img src={french} alt="French" className="language-flag" />
-      <span className="language-name">French</span>
-    </div>
-    <div className="language-item">
-      <img src={spanish} alt="Spanish" className="language-flag" />
-      <span className="language-name">Spanish</span>
-    </div>
-    <div className="language-item">
-      <img src={arabic} alt="Arabic" className="language-flag" />
-      <span className="language-name">Arabic</span>
-    </div>
-    <div className="language-item">
-      <img src={korean} alt="Korean" className="language-flag" />
-      <span className="language-name">Korean</span>
-    </div>
-  </div>
-</div>
-
-{/* Project List Section */}
-<div id="projects">
-<h2>Projects</h2>
-          <ProjectList /> 
+        <div id="bio" className="section">
+          <div className="aboutMeContainer">
+            <div className="photoWrapper">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D5603AQGzUIoZ5638xw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727396349341?e=1744848000&v=beta&t=hTW9On39rHDX-VLYy0jWDQ1z2RCiiTUTQnowgNeacAE"
+                alt="Profile"
+                className="profilePhoto"
+              />
+            </div>
+            <div className="infoWrapper">
+              <h2>{t('welcomePage.bioSection.bioTitle')}</h2>
+              <p>{t('welcomePage.bioSection.bioDescription')}</p>
+            </div>
+          </div>
         </div>
-        
-    </div>
-    </div>
 
+        <div id="skills-section">
+          <h2>{t('welcomePage.skills.title')}</h2>
+          <div className="skills-container">
+            <div className="skill-item">
+              <img src={javaIcon} alt="Java" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.java')}</span>
+            </div>
+            <div className="skill-item">
+              <img src={pythonIcon} alt="Python" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.python')}</span>
+            </div>
+            <div className="skill-item">
+              <img src={csharpIcon} alt="C#" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.csharp')}</span>
+            </div>
+            <div className="skill-item">
+              <img src={gitIcon} alt="Git" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.git')}</span>
+            </div>
+            <div className="skill-item">
+              <img src={reactIcon} alt="React" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.react')}</span>
+            </div>
+            <div className="skill-item">
+              <img src={databaseIcon} alt="Databases" className="skill-icon" />
+              <span className="skill-name">{t('welcomePage.skills.databases')}</span>
+            </div>
+          </div>
+
+          <h2>{t('welcomePage.languages.title')}</h2>
+          <div className="languages-container">
+            <div className="language-item">
+              <img src={usa} alt="English" className="language-flag" />
+              <span className="language-name">{t('welcomePage.languages.english')}</span>
+            </div>
+            <div className="language-item">
+              <img src={french} alt="French" className="language-flag" />
+              <span className="language-name">{t('welcomePage.languages.french')}</span>
+            </div>
+            <div className="language-item">
+              <img src={spanish} alt="Spanish" className="language-flag" />
+              <span className="language-name">{t('welcomePage.languages.spanish')}</span>
+            </div>
+            <div className="language-item">
+              <img src={arabic} alt="Arabic" className="language-flag" />
+              <span className="language-name">{t('welcomePage.languages.arabic')}</span>
+            </div>
+            <div className="language-item">
+              <img src={korean} alt="Korean" className="language-flag" />
+              <span className="language-name">{t('welcomePage.languages.korean')}</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects">
+          <h2>{t('welcomePage.projects')}</h2>
+          <ProjectList />
+        </div>
+      </div>
+    </div>
   );
 };
 

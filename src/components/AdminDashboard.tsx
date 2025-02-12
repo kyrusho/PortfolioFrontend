@@ -3,10 +3,12 @@ import { commentResponseModel } from '../model/commentResponseModel';
 import { getPendingComments, approveComment, deleteComment } from '../axios/commentActions';
 import Navbar from './Navbar';
 import './AdminDashboard.css';
+import { useTranslation } from 'react-i18next';
 
 const AdminDashboard: React.FC = (): JSX.Element => {
   const [comments, setComments] = useState<commentResponseModel[]>([]);
   const [isHaitham, setIsHaitham] = useState<boolean>(false);
+  const { t } = useTranslation();  // Using the translation hook
 
   useEffect(() => {
     const fetchUserRoles = async () => {
@@ -40,7 +42,7 @@ const AdminDashboard: React.FC = (): JSX.Element => {
     try {
       await approveComment(commentId);
       setComments(comments.map(c => (c.commentId === commentId ? { ...c, approved: true } : c)));
-      alert('Comment approved!');
+      alert(t('commentApproved'));
     } catch (error) {
       console.error('Error approving comment:', error);
     }
@@ -50,30 +52,30 @@ const AdminDashboard: React.FC = (): JSX.Element => {
     try {
       await deleteComment(commentId);
       setComments(comments.filter(c => c.commentId !== commentId));
-      alert('Comment deleted!');
+      alert(t('commentDeleted'));
     } catch (error) {
       console.error('Error deleting comment:', error);
     }
   };
 
-  if (!isHaitham) return <p>Access Denied.</p>;
+  if (!isHaitham) return <p>{t('accessDenied')}</p>;
 
   return (
     <div className="adminDashboard">
       <Navbar />
       <div className='commentsText'>
-      <h1>Admin Dashboard</h1>
+        <h1>{t('adminDashboard')}</h1>
       </div>
       <div className="commentsContainer">
         {comments.length === 0 ? (
-          <p>No pending comments available.</p>
+          <p>{t('noPendingComments')}</p>
         ) : (
           comments.map((comment) => (
             <div key={comment.commentId} className="comment">
               <p>
                 <strong>{comment.author}:</strong> {comment.content}
               </p>
-              <p className="commentDate">Submitted on: {new Date(comment.dateSubmitted).toLocaleString()}</p>
+              <p className="commentDate">{t('submittedOn')}: {new Date(comment.dateSubmitted).toLocaleString()}</p>
               <button className="approveBtn" onClick={() => handleApprove(comment.commentId)}>
                 ✔ 
               </button>

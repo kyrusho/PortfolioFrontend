@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { addComment } from '../axios/addComment';
 import { commentRequestModel } from '../model/commentRequestModel';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const [author, setAuthor] = useState<string>(''); 
   const [content, setContent] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false); 
@@ -12,7 +14,7 @@ const Footer: React.FC = () => {
 
   const handleCommentSubmit = async () => {
       if (!author || !content) {
-        setErrorContent('Please fill in both author and content.');
+        setErrorContent(t('footer.leaveComment.error'));
         return;
       }
   
@@ -24,10 +26,10 @@ const Footer: React.FC = () => {
         setAuthor('');
         setContent('');
         setErrorContent('');
-        alert('Comment submitted successfully! Awaiting approval.');
+        alert(t('footer.leaveComment.submitSuccess'));
       } catch (error) {
         console.error('Error submitting comment:', error);
-        setErrorContent('There was an error submitting your comment.');
+        setErrorContent(t('footer.leaveComment.submitError'));
       } finally {
         setIsSubmitting(false);
       }
@@ -37,16 +39,14 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>Contact Me</h3>
-          <p>
-            If you have any questions or feedback, feel free to reach out to me.
-          </p>
+          <h3>{t('footer.contactTitle')}</h3>
+          <p>{t('footer.contactDescription')}</p>
 
           <button
             className="comment-button"
             onClick={() => setShowCommentForm(!showCommentForm)}
           >
-            {showCommentForm ? 'Close' : 'Leave a Comment'}
+            {showCommentForm ? t('footer.leaveComment.closeForm') : t('footer.leaveComment.openForm')}
           </button>
 
           {showCommentForm && (
@@ -68,21 +68,21 @@ const Footer: React.FC = () => {
                 onClick={handleCommentSubmit}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Submitting...' : 'Leave Comment'}
+                {isSubmitting ? 'Submitting...' : t('footer.leaveComment.openForm')}
               </button>
             </div>
           )}
 
           <p>
             <a href="mailto:jshn2004@hotmail.com" className="email-link">
-              📧 Send me an email
+              📧 {t('footer.contactTitle')}
             </a>
           </p>
         </div>
 
         <div className="footer-section">
-          <h3>Follow Me</h3>
-          <p>Stay connected with me on social media:</p>
+          <h3>{t('footer.followMe')}</h3>
+          <p>{t('footer.stayConnected')}</p>
           <div className="socialLinks">
             <a href="https://www.linkedin.com/in/haitham-nabihi-2353a0326/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-linkedin"></i>
@@ -97,24 +97,24 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="footer-section">
-          <h3>Download My Resume</h3>
-          <p>Download my professional resume in bot English and French.</p>
+          <h3>{t('footer.downloadResume')}</h3>
+          <p>{t('footer.resumeDescription')}</p>
           <a href="haithamCV.pdf" download="Haitham_Nabihi_CV_EN.pdf" className="download-button">
-            EN
+            {t('footer.resumeEN')}
           </a>
           &nbsp; &nbsp;
           <a href="haithamNabihiCVFrancais.pdf" download="Haitham_Nabihi_CV_FR.pdf" className="download-button">
-            FR
+            {t('footer.resumeFR')}
           </a>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Haitham Nabihi. All rights reserved.</p>
+        <p>{t('footer.rightsReserved')}</p>
         <p>
-          Icons made by &nbsp;
+          {t('footer.iconsMadeBy')} &nbsp;
           <a href="https://www.flaticon.com/authors/freepik" target="_blank" rel="noopener noreferrer">Freepik</a>,
           &nbsp;
-          <a href="https://www.flaticon.com/authors/pixel-perfect" target="_blank" rel="noopener noreferrer">Pixel perfect</a> from <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">www.flaticon.com</a>
+          <a href="https://www.flaticon.com/authors/pixel-perfect" target="_blank" rel="noopener noreferrer">Pixel perfect</a> {t('footer.onFlaticon')}
         </p>
       </div>
     </footer>

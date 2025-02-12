@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Import translation hook
+import i18n from "../i18n"; // Import i18n instance
+import "./Navbar.css";
 
 const Navbar: React.FC = (): JSX.Element => {
+  const { t } = useTranslation(); // Use translation function
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isHaitham, setIsHaitham] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Check if user is authenticated based on the presence of an access token
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem("access_token");
     if (token) {
       setIsAuthenticated(true);
       fetchUserRoles(token);
@@ -18,20 +21,20 @@ const Navbar: React.FC = (): JSX.Element => {
 
   const fetchUserRoles = (token: string) => {
     try {
-      const base64Url = token.split('.')[1];
+      const base64Url = token.split(".")[1];
       const decodedPayload = JSON.parse(atob(base64Url));
-      const roles = decodedPayload['https://portfolio/roles'] || []; // Replace with your actual namespace
+      const roles = decodedPayload["https://portfolio/roles"] || [];
 
-      setIsHaitham(roles.includes('Haitham')); // Check if user has the "Haitham" role
+      setIsHaitham(roles.includes("Haitham"));
     } catch (err) {
-      console.error('Error decoding user roles:', err);
+      console.error("Error decoding user roles:", err);
       setIsHaitham(false);
     }
   };
 
   const handleLoginRedirect = () => {
     setLoading(true);
-    const audience = 'https://dev-3bhgduaasaz1xonw.us.auth0.com/api/v2/';
+    const audience = "https://dev-3bhgduaasaz1xonw.us.auth0.com/api/v2/";
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL;
 
@@ -46,59 +49,63 @@ const Navbar: React.FC = (): JSX.Element => {
   };
 
   const handleLogout = () => {
-    // Remove authentication tokens from storage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("auth_token");
     sessionStorage.clear();
 
     setIsAuthenticated(false);
     setIsHaitham(false);
+    window.location.href = "/";
+  };
 
-    // Redirect to home page after logout
-    window.location.href = '/';
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === "en" ? "fr" : "en";
+    i18n.changeLanguage(newLanguage);
   };
 
   return (
     <nav className="navbar">
-      <ul className="navbarList">
+      <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </div>
+
+      <ul className={`navbarList ${menuOpen ? "active" : ""}`}>
         <li className="navbarItem">
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setMenuOpen(false)}>{t("navbar.home")}</Link>
         </li>
         <li className="navbarItem">
-          <a href="#bio">BIO</a>
+          <a href="/#bio" onClick={() => setMenuOpen(false)}>{t("navbar.bio")}</a>
         </li>
         <li className="navbarItem">
-          <a href="#skills-section">Skills</a>
+          <a href="/#skills-section" onClick={() => setMenuOpen(false)}>{t("navbar.skills")}</a>
         </li>
         <li className="navbarItem">
-          <a href="#projects">Projects</a>
+          <a href="/#projects" onClick={() => setMenuOpen(false)}>{t("navbar.projects")}</a>
+        </li>
+        <li className="navbarItem">
+          <Link to="/comments" onClick={() => setMenuOpen(false)}>{t("navbar.comments")}</Link>
         </li>
 
-        <li className="navbarItem">
-          <Link to="/comments">Comments</Link>
-        </li>
-
-        {/* Show Admin Dashboard if the user is authenticated and has the "Haitham" role */}
         {isAuthenticated && isHaitham && (
           <li className="navbarItem">
-            <Link to="/kyrushoAdmin">Admin Dashboard</Link>
+            <Link to="/kyrushoAdmin" onClick={() => setMenuOpen(false)}>{t("navbar.adminDashboard")}</Link>
           </li>
         )}
 
-        {/* Show login button if not authenticated, otherwise show logout button */}
         {!isAuthenticated ? (
-          <button
-            className={`loginButton ${loading ? 'loading' : ''}`}
-            onClick={handleLoginRedirect}
-            disabled={loading}
-          >
-            {loading ? 'Redirecting...' : 'Login'}
+          <button className={`loginButton ${loading ? "loading" : ""}`} onClick={handleLoginRedirect} disabled={loading}>
+            {loading ? t("navbar.redirecting") : t("navbar.login")}
           </button>
         ) : (
           <button className="loginButton" onClick={handleLogout}>
-            Logout
+            {t("navbar.logout")}
           </button>
         )}
+
+        {/* Translation Button */}
+        <button className="translateButton" onClick={toggleLanguage}>
+          {i18n.language.toUpperCase()}
+        </button>
       </ul>
     </nav>
   );

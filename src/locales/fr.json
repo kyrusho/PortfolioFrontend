@@ -1,0 +1,98 @@
+{
+    "welcomePage": {
+      "greeting": "Bonjour le monde, je suis Haitham",
+      "butterflies": "Effet Papillon",
+      "bioSection": {
+        "bioTitle": "À Propos De Moi",
+        "bioDescription": "Salut! Je suis Haitham, étudiant au Champlain College St-Lambert, en informatique. J'ai une grande passion pour le développement logiciel et le design UX, et je suis très curieux de l'IA et du machine learning. En dehors de ma carrière et de mes études, j'aime la photographie, la cinématographie et voyager à travers le monde!"
+      },
+      "skills": {
+        "title": "Compétences",
+        "java": "Java",
+        "python": "Python",
+        "csharp": "C#",
+        "git": "Git",
+        "react": "React",
+        "databases": "Bases de données"
+      },
+      "languages": {
+        "title": "Langues",
+        "english": "Anglais",
+        "french": "Français",
+        "spanish": "Espagnol",
+        "arabic": "Arabe",
+        "korean": "Coréen"
+      },
+      "projects": "Projets"
+    },
+    "navbar": {
+      "home": "Accueil",
+      "bio": "BIO",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "comments": "Commentaires",
+      "adminDashboard": "Tableau de bord Admin",
+      "login": "Connexion",
+      "logout": "Déconnexion",
+      "redirecting": "Redirection..."
+    },
+    "footer": {
+      "contactTitle": "Contactez-moi",
+      "contactDescription": "Si vous avez des questions ou des retours, n'hésitez pas à me contacter.",
+      "leaveComment": {
+        "openForm": "Laisser un Commentaire",
+        "closeForm": "Fermer",
+        "error": "Veuillez remplir à la fois l'auteur et le contenu.",
+        "submitSuccess": "Commentaire soumis avec succès ! En attente d'approbation.",
+        "submitError": "Il y a eu une erreur lors de la soumission de votre commentaire."
+      },
+      "followMe": "Suivez-moi",
+      "stayConnected": "Restez connecté avec moi sur les réseaux sociaux:",
+      "downloadResume": "Télécharger mon CV",
+      "resumeDescription": "Téléchargez mon CV professionnel en anglais et en français.",
+      "resumeEN": "EN",
+      "resumeFR": "FR",
+      "rightsReserved": "© 2025 Haitham Nabihi. Tous droits réservés.",
+      "iconsMadeBy": "Icônes créées par",
+      "onFlaticon": "de www.flaticon.com"
+    },
+    
+        "addNewProject": "Ajouter un nouveau projet",
+        "projectName": "Nom du projet",
+        "iconUrl": "URL de l'icône",
+        "gitRepo": "Dépôt Git",
+        "skills": "Compétences",
+        "addProject": "Ajouter le projet",
+        "projectAddedSuccessfully": "Projet ajouté avec succès!",
+        "failedToAddProject": "Échec de l'ajout du projet.",
+        "selectSkills": "Sélectionnez des compétences en cliquant sur les logos",
+
+        "adminDashboard": "Tableau de bord Admin",
+  "commentApproved": "Commentaire approuvé!",
+  "commentDeleted": "Commentaire supprimé!",
+  "accessDenied": "Accès refusé.",
+  "noPendingComments": "Aucun commentaire en attente.",
+  "submittedOn": "Soumis le",
+  "comments": "Commentaires",
+  "leaveAComment": "Laisser un commentaire",
+  "close": "Fermer",
+  "yourName": "Votre nom",
+  "yourComment": "Votre commentaire",
+  "leaveComment": "Laisser un commentaire",
+  "submitting": "En soumission...",
+  "commentSubmitted": "Commentaire soumis avec succès! En attente d'approbation.",
+  "errorSubmittingComment": "Une erreur est survenue lors de la soumission de votre commentaire.",
+  "noCommentsAvailable": "Aucun commentaire disponible.",
+  "pleaseFillInFields": "Veuillez remplir à la fois l'auteur et le contenu.",
+  "loadingProjects": "Chargement des projets...",
+  "add": "Ajouter",
+  "update": "Mettre à jour",
+  "noProjectsAvailable": "Aucun projet disponible",
+  "updateProject": "Mettre à jour le projet",
+  "projectIdMissing": "L'ID du projet est manquant.",
+  "projectUpdatedSuccess": "Le projet a été mis à jour avec succès!",
+  "projectUpdateFailed": "Échec de la mise à jour du projet.",
+  "updateProjectButton": "Mettre à jour le projet"
+      
+  }
+  

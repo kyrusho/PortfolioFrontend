@@ -5,8 +5,9 @@ import { projectResponseModel, skillResponseModel } from '../model/projectRespon
 import { getProject, updateProject } from '../axios/updateProject';
 import { getAllSkills } from '../axios/getAllSkills';
 import { projectRequestModel } from '../model/projectRequestModel';
+import { useTranslation } from 'react-i18next';
 
-const UpdateProjectForm: React.FC = (): JSX.Element => {
+const UpdateProject: React.FC = (): JSX.Element => {
   const { projectId } = useParams<{ projectId: string }>();
   const [projectName, setProjectName] = useState<string>('');
   const [iconUrl, setIconUrl] = useState<string>('');
@@ -14,6 +15,7 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
   const [skills, setSkills] = useState<skillResponseModel[]>([]);
   const [selectedSkills, setSelectedSkills] = useState<skillResponseModel[]>([]);
   const navigate = useNavigate();
+  const { t } = useTranslation(); // Using the translation hook
 
   useEffect(() => {
     const fetchProjectAndSkills = async (): Promise<void> => {
@@ -50,7 +52,7 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
     event.preventDefault();
 
     if (!projectId) {
-      alert('Project ID is missing.');
+      alert(t('projectIdMissing'));
       return;
     }
 
@@ -63,20 +65,20 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
 
     try {
       await updateProject(projectId, updatedProject);
-      alert('Project updated successfully!');
+      alert(t('projectUpdatedSuccess'));
       navigate('/');
     } catch (error) {
       console.error('Error updating project:', error);
-      alert('Failed to update project.');
+      alert(t('projectUpdateFailed'));
     }
   };
 
   return (
     <div className="update-project-form">
-      <h2>Update Project</h2>
+      <h2>{t('updateProject')}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="projectName">Project Name</label>
+          <label htmlFor="projectName">{t('projectName')}</label>
           <input
             type="text"
             id="projectName"
@@ -86,7 +88,7 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="iconUrl">Icon Url</label>
+          <label htmlFor="iconUrl">{t('iconUrl')}</label>
           <textarea
             id="iconUrl"
             value={iconUrl}
@@ -95,7 +97,7 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="gitRepo">Git Repository</label>
+          <label htmlFor="gitRepo">{t('gitRepo')}</label>
           <input
             type="text"
             id="gitRepo"
@@ -105,7 +107,7 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
           />
         </div>
         <div className="form-group">
-          <label>Skills</label>
+          <label>{t('skills')}</label>
           <div className="skill-logos-container">
             {skills.map((skill) => (
               <img
@@ -119,11 +121,11 @@ const UpdateProjectForm: React.FC = (): JSX.Element => {
           </div>
         </div>
         <button type="submit" className="btn btn-primary">
-          Update Project
+          {t('updateProjectButton')}
         </button>
       </form>
     </div>
   );
 };
 
-export default UpdateProjectForm;
+export default UpdateProject;

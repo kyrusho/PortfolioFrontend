@@ -10,6 +10,30 @@
     padding: 10px 20px;
 }
 
+/* Translation Button */
+.translateButton {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.translateButton:hover {
+    background: linear-gradient(135deg, #ff5a94, #ff3e76);
+    transform: scale(1.05);
+}
+
+.translateButton:active {
+    transform: scale(0.95);
+}
+
 .navbarList {
     display: flex;
     list-style: none;
@@ -96,5 +120,52 @@
     .loginButton {
         padding: 6px 15px;
         font-size: 0.9rem;
+    }
+}
+
+/* Mobile Menu */
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+    margin-right: 10px;
+    padding-left: 10%;
+}
+
+/* Hide menu by default on small screens */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .navbarList {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%; /* Full width */
+        background: linear-gradient(135deg, #eae5f7, #c4bfef);
+        text-align: center;
+        padding: 1rem 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbarList.active {
+        display: flex; /* Show when toggled */
+    }
+
+    .navbarItem {
+        padding: 1rem 0;
+        width: 100%; /* Full width for each item */
+    }
+
+    /* Adjust width for better text display */
+    .navbarList {
+        width: 300px; /* Increase width for better text display */
+        left: 50%; /* Center the menu */
+        transform: translateX(-50%); /* Center the menu */
     }
 }
