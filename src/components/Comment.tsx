@@ -109,6 +109,9 @@ const Comment: React.FC = (): JSX.Element => {
         </div>
       )}
 
+<div className="section-divider"></div>  {/* Divider here */}
+
+
       <div className="commentsContainer">
         {comments.length > 0 ? (
           comments.map((comment) => (

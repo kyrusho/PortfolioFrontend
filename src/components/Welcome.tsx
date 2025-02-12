@@ -113,6 +113,9 @@ const Welcome: React.FC = (): JSX.Element => {
           </div>
         </div>
 
+        <div className="section-divider"></div>  {/* Divider here */}
+
+
         <div id="skills-section">
           <h2>{t('welcomePage.skills.title')}</h2>
           <div className="skills-container">
@@ -166,6 +169,9 @@ const Welcome: React.FC = (): JSX.Element => {
             </div>
           </div>
         </div>
+
+        <div className="section-divider"></div>  {/* Divider here */}
+
 
         <div id="projects">
           <h2>{t('welcomePage.projects')}</h2>
