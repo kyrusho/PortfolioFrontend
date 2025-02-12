@@ -15,6 +15,11 @@
     z-index: 2; /* Make sure they are above the butterflies */
 }
 
+#projects h2 {
+    font-family: 'Patrick Hand', cursive;
+    padding-top: 2%; /* Reduced padding-top */
+}
+
 .welcomeButton .buttonSubtitle {
     display: block;
     font-size: 0.9rem;
