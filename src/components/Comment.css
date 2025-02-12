@@ -33,7 +33,7 @@
 
 
 .comment {
-    background: linear-gradient(180deg, #dafff0, #98c497); 
+    background: linear-gradient(135deg, #6a11cb, #2575fc); 
     border-radius: 10px;
     padding: 1.5rem;
     margin: 10px 0;
@@ -55,12 +55,12 @@
 
 .comment p strong {
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
 }
 
 .commentDate {
     font-size: 0.9rem;
-    color: #777;
+    color: #c7c5c5;
     margin-top: 1rem;
     font-style: italic;
 }
