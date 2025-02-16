@@ -6,6 +6,8 @@ import CallbackPage from './pages/Callbackpage';
 import AddProjectPage from './pages/AddProjectPage';
 import UpdateProjectPage from './pages/UpdateProjectPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
+import TravelPage from './pages/TravelPage';
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: PathRoutes.AdminDashboardPage,
     element: <AdminDashboardPage />,
+  },
+  {
+    path: PathRoutes.TravelPage,
+    element: <TravelPage />,
   },
 ]);
 

@@ -74,14 +74,15 @@ const Navbar: React.FC = (): JSX.Element => {
           <Link to="/" onClick={() => setMenuOpen(false)}>{t("navbar.home")}</Link>
         </li>
         <li className="navbarItem">
-          <a href="/#bio" onClick={() => setMenuOpen(false)}>{t("navbar.bio")}</a>
-        </li>
-        <li className="navbarItem">
           <a href="/#skills-section" onClick={() => setMenuOpen(false)}>{t("navbar.skills")}</a>
         </li>
         <li className="navbarItem">
           <a href="/#projects" onClick={() => setMenuOpen(false)}>{t("navbar.projects")}</a>
         </li>
+        <li className="navbarItem">
+          <Link to="/travels" onClick={() => setMenuOpen(false)}>{t("navbar.travels")}</Link>
+        </li>
+
         <li className="navbarItem">
           <Link to="/comments" onClick={() => setMenuOpen(false)}>{t("navbar.comments")}</Link>
         </li>

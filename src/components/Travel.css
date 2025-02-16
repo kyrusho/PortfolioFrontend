@@ -1,0 +1,78 @@
+.travelPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #f8e9e9, #b3d0e1);
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    color: #333;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.travelSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.travelSection.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.travelImage {
+    flex: 1;
+    height: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+.travelText {
+    flex: 1;
+    padding: 20px;
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.travelText h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.travelText p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .travelSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .travelSection.row-reverse {
+        flex-direction: column;
+    }
+
+    .travelImage {
+        max-height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .travelText {
+        max-width: 100%;
+        padding: 20px;
+    }
+}

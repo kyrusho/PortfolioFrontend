@@ -4,7 +4,7 @@
       "butterflies": "Butterfly Effect",
       "bioSection": {
         "bioTitle": "About Me",
-        "bioDescription": "Hey! I'm Haitham, a student at Champlain College St-Lambert, studying Computer Science. I have a strong passion for software development and UX design, and I'm highly curious about AI and machine learning. Outside of career and academics, I enjoy photography, cinematography, and travelling the world!"
+        "bioDescription": "Hey! I'm Haitham, a student at Champlain College St-Lambert, studying Computer Science. I have a strong passion for software development and UX design, and I'm highly curious about AI and machine learning. Outside of career and academics, I enjoy photography, cinematography, and travelling the world! 👇✈️Check out my travel journey ✈️👇"
       },
       "skills": {
         "title": "Skills",
@@ -30,12 +30,68 @@
       "bio": "BIO",
       "skills": "Skills",
       "projects": "Projects",
+      "travels": "Travels",
       "comments": "Comments",
       "adminDashboard": "Admin Dashboard",
       "login": "Login",
       "logout": "Logout",
       "redirecting": "Redirecting..."
     },
+  "travelPage": {
+    "title": "Haitham's Travel Blog",
+    "description": "Explore the beauty and culture of this amazing place. Discover hidden gems and experience unique adventures that will create lasting memories.",
+    "learnMore": "Travel Blog",
+    "destinations": {
+      "thailand": {
+        "title": "Thailand - My Favorite Trip",
+        "description": "Thailand stole my heart! From the rich history and breathtaking temples to the friendliest people I've ever met, this trip was unforgettable. I made incredible friends in hostels and explored the country from north to south. I’m certain I haven’t had enough of Thailand—I’ll definitely be back!",
+        "image": "https://i.postimg.cc/G2yyTXdq/D6233-E13-3178-41-D5-9-C40-58-CE81-E9-EA98.jpg"
+
+      },
+      "morocco": {
+        "title": "Morocco - A Journey Home",
+        "description": "Morocco always fills me with nostalgia and warmth. From the bustling streets of Casablanca to the serene beauty of Errachidia and Meknes, this country is a treasure trove of culture and history. One of the most magical moments of my life was watching the sunset in the dunes of Merzouga. The people are welcoming, and Marrakech boasts some of the best hotels in the world!",
+        "image": "https://i.postimg.cc/MKb1Y3RL/CC6-C10-F5-28-B2-413-F-B6-A0-20636-E18294-A.jpg"
+
+      },
+      "spain": {
+        "title": "Spain - My First Solo Adventure",
+        "description": "Spain holds a special place in my heart as the first country I solo-traveled to. From the vibrant streets of Malaga and Seville to the grand cityscape of Barcelona, I embraced the adventure despite my fears. My day trip to Benalmádena’s dreamy beaches was unforgettable. Speaking Spanish daily made the experience even more immersive and rewarding.",
+        "image": "https://i.postimg.cc/BnSH75Bn/72-CEEBD8-7-AB1-44-D2-A769-78-D59310496-E.jpg"
+
+      },
+      "portugal": {
+        "title": "Portugal - A Dreamy Escape",
+        "description": "Lisbon was packed with life, history, and delicious food, but Nazare was pure paradise. Spending two whole days on a secluded beach, surrounded by stunning cliffs and caves, was surreal. Portugal felt like an adventure straight out of Dora the Explorer, and I can't wait to return for more relaxation.",
+        "image": "https://i.postimg.cc/q7gn4kYf/D2862-AC1-D684-4525-B578-9-A1-BD0-A4143-D.jpg"
+
+      },
+      "italy": {
+        "title": "Italy - Northern Beauty",
+        "description": "Italy was like walking through a postcard—exploring Como, Milan, Guanzate, and Venice was a breathtaking experience. Although the cities were a bit far apart, the road trip aspect made it all the more exciting. I can’t wait to return and explore southern Italy next time!",
+        "image": "https://i.postimg.cc/zX1nKYLW/E2-F8-E10-E-FA11-44-D3-B05-C-7059333459-E9.jpg"
+
+      },
+      "switzerland": {
+        "title": "Switzerland - A Clean & Green Stopover",
+        "description": "During my 17-hour layover in Zurich, I decided to explore instead of waiting at the airport—and I’m so glad I did! Zurich is the cleanest city I've ever seen, with crystal-clear lakes and lush greenery. While everything was expensive, the beauty and tranquility made it worth the visit.",
+        "image": "https://i.postimg.cc/nL5mLybX/5-AB83-CAC-C217-40-DC-8-AED-0-A2454-A905-D7.jpg"
+
+      },
+      "saudiArabia": {
+        "title": "Saudi Arabia - A Spiritual Journey",
+        "description": "Visiting Saudi Arabia for Umrah was a soul-cleansing experience. Connecting with my faith in such a sacred place was deeply peaceful. This pilgrimage was unlike any other trip, and I hope to return for another spiritual journey in the future.",
+        "image": "https://i.postimg.cc/7Pz35ZLw/451829-D6-FD84-473-F-9877-B26063-CB7646.jpg"
+
+      },
+      "usa": {
+        "title": "USA - The City of Dreams",
+        "description": "I've explored several U.S. cities like New York, Boston, and Plattsburgh, but New York stands out the most. As a fashion lover, I felt at home in a city where you can express yourself freely. The diversity and energy of New York make it the perfect place to chase your dreams.",
+        "image": "https://i.postimg.cc/g2gRCwgq/8-DBB8-FB7-124-F-4-B8-D-88-DA-D49403749-D2-C.jpg"
+
+      }
+    }
+  },
     "footer": {
       "contactTitle": "Contact Me",
       "contactDescription": "If you have any questions or feedback, feel free to reach out to me.",

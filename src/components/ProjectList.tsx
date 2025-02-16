@@ -5,6 +5,8 @@ import './ProjectList.css';
 import { projectResponseModel } from '../model/projectResponseModel';
 import { getAllProjects } from '../axios/getAllProjects';
 import { useTranslation } from 'react-i18next';
+import { deleteProject } from "../axios/deleteProject";
+
 
 const ProjectList: React.FC = (): JSX.Element => {
   const [projects, setProjects] = useState<projectResponseModel[]>([]);
@@ -12,7 +14,16 @@ const ProjectList: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
   const { t } = useTranslation();  // Using the translation hook
-
+  const handleDeleteProject = async (projectId: number) => {
+    if (window.confirm("Are you sure you want to delete this project?")) {
+      try {
+        await deleteProject(projectId);
+        setProjects((prevProjects) => prevProjects.filter(p => p.projectId !== projectId));
+      } catch (error) {
+        console.error("Error deleting project:", error);
+      }
+    }
+  };
   useEffect(() => {
     const fetchUserRoles = async () => {
       const accessToken = localStorage.getItem('access_token');
@@ -129,6 +140,18 @@ const ProjectList: React.FC = (): JSX.Element => {
                     ))}
                   </div>
                 </div>
+
+                {isZako && (
+  <div className="d-flex justify-content-end mb-2">
+    <button
+      className="btn btn-danger btn-sm"
+      onClick={() => handleDeleteProject(project.projectId)}
+    >
+      ❌
+    </button>
+  </div>
+)}
+
               </div>
             </div>
           ))

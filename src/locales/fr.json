@@ -4,8 +4,9 @@
       "butterflies": "Effet Papillon",
       "bioSection": {
         "bioTitle": "À Propos De Moi",
-        "bioDescription": "Salut! Je suis Haitham, étudiant au Champlain College St-Lambert, en informatique. J'ai une grande passion pour le développement logiciel et le design UX, et je suis très curieux de l'IA et du machine learning. En dehors de ma carrière et de mes études, j'aime la photographie, la cinématographie et voyager à travers le monde!"
-      },
+        "bioDescription": "Salut! Je suis Haitham, étudiant au Champlain College St-Lambert, en informatique. J'ai une grande passion pour le développement logiciel et le design UX, et je suis très curieux de l'IA et du machine learning. En dehors de ma carrière et de mes études, j'aime la photographie, la cinématographie et voyager à travers le monde! 👇✈️Découvrez mes voyages ✈️👇"
+      
+    },   
       "skills": {
         "title": "Compétences",
         "java": "Java",
@@ -30,12 +31,60 @@
       "bio": "BIO",
       "skills": "Compétences",
       "projects": "Projets",
+      "travels": "Voyages",
       "comments": "Commentaires",
       "adminDashboard": "Tableau de bord Admin",
       "login": "Connexion",
       "logout": "Déconnexion",
       "redirecting": "Redirection..."
     },
+ "travelPage": {
+  "title": "Le Blog de Voyage de Haitham",
+  "description": "Explorez la beauté et la culture de cet endroit incroyable. Découvrez des trésors cachés et vivez des aventures uniques qui créeront des souvenirs inoubliables.",
+  "learnMore": "Blog de Voyage",
+  "destinations": {
+    "thailand": {
+      "title": "Thaïlande - Mon Voyage Préféré",
+      "description": "La Thaïlande a volé mon cœur ! De son histoire riche et ses temples à couper le souffle aux habitants les plus chaleureux que j’ai jamais rencontrés, ce voyage a été inoubliable. J’ai fait des rencontres incroyables dans les auberges et j’ai exploré le pays du nord au sud. Je suis certain que ce n’est pas fini — je reviendrai sans aucun doute !",
+      "image": "https://i.postimg.cc/G2yyTXdq/D6233-E13-3178-41-D5-9-C40-58-CE81-E9-EA98.jpg"
+    },
+    "morocco": {
+      "title": "Maroc - Un Retour aux Sources",
+      "description": "Le Maroc m’apporte toujours une sensation de nostalgie et de chaleur. Des rues animées de Casablanca à la beauté paisible d’Errachidia et de Meknès, ce pays est un véritable trésor de culture et d’histoire. L’un des moments les plus magiques de ma vie a été de regarder le coucher du soleil dans les dunes de Merzouga. Les habitants sont accueillants, et Marrakech abrite certains des meilleurs hôtels du monde !",
+      "image": "https://i.postimg.cc/MKb1Y3RL/CC6-C10-F5-28-B2-413-F-B6-A0-20636-E18294-A.jpg"
+    },
+    "spain": {
+      "title": "Espagne - Ma Première Aventure en Solo",
+      "description": "L’Espagne occupe une place spéciale dans mon cœur, car c’est le premier pays où j’ai voyagé seul. Des rues vibrantes de Malaga et Séville à l’impressionnant paysage urbain de Barcelone, j’ai embrassé l’aventure malgré mes peurs. Mon excursion d’une journée aux plages de rêve de Benalmádena reste inoubliable. Parler espagnol au quotidien a rendu l’expérience encore plus immersive et enrichissante.",
+      "image": "https://i.postimg.cc/BnSH75Bn/72-CEEBD8-7-AB1-44-D2-A769-78-D59310496-E.jpg"
+    },
+    "portugal": {
+      "title": "Portugal - Une Évasion de Rêve",
+      "description": "Lisbonne débordait de vie, d’histoire et de plats délicieux, mais Nazaré était un véritable paradis. Passer deux jours entiers sur une plage isolée, entouré de falaises et de grottes spectaculaires, était surréaliste. Le Portugal ressemblait à une aventure tout droit sortie de Dora l’exploratrice, et j’ai hâte d’y retourner pour encore plus de détente.",
+      "image": "https://i.postimg.cc/q7gn4kYf/D2862-AC1-D684-4525-B578-9-A1-BD0-A4143-D.jpg"
+    },
+    "italy": {
+      "title": "Italie - Beauté du Nord",
+      "description": "L’Italie, c’était comme marcher à travers une carte postale — explorer Côme, Milan, Guanzate et Venise a été une expérience à couper le souffle. Même si les villes étaient un peu éloignées les unes des autres, l’aspect road trip a rendu le voyage encore plus excitant. J’ai hâte d’y retourner pour découvrir le sud de l’Italie la prochaine fois !",
+      "image": "https://i.postimg.cc/zX1nKYLW/E2-F8-E10-E-FA11-44-D3-B05-C-7059333459-E9.jpg"
+    },
+    "switzerland": {
+      "title": "Suisse - Une Escale Verte et Propre",
+      "description": "Pendant ma longue escale de 17 heures à Zurich, j’ai décidé d’explorer la ville au lieu d’attendre à l’aéroport — et je suis tellement content de l’avoir fait ! Zurich est la ville la plus propre que j’ai jamais vue, avec des lacs cristallins et une verdure luxuriante. Certes, tout était cher, mais la beauté et la sérénité de l’endroit en valaient la peine.",
+      "image": "https://i.postimg.cc/nL5mLybX/5-AB83-CAC-C217-40-DC-8-AED-0-A2454-A905-D7.jpg"
+    },
+    "saudiArabia": {
+      "title": "Arabie Saoudite - Un Voyage Spirituel",
+      "description": "Visiter l’Arabie Saoudite pour l’Omra a été une expérience purifiante pour l’âme. Se connecter avec ma foi dans un lieu aussi sacré a été profondément apaisant. Ce pèlerinage était différent de tous les autres voyages, et j’espère y retourner pour une autre expérience spirituelle dans le futur.",
+      "image": "https://i.postimg.cc/7Pz35ZLw/451829-D6-FD84-473-F-9877-B26063-CB7646.jpg"
+    },
+    "usa": {
+      "title": "États-Unis - La Ville des Rêves",
+      "description": "J’ai exploré plusieurs villes américaines comme New York, Boston et Plattsburgh, mais New York se démarque particulièrement. En tant que passionné de mode, je me suis senti chez moi dans une ville où l’on peut s’exprimer librement. La diversité et l’énergie de New York en font l’endroit idéal pour poursuivre ses rêves.",
+      "image": "https://i.postimg.cc/g2gRCwgq/8-DBB8-FB7-124-F-4-B8-D-88-DA-D49403749-D2-C.jpg"
+    }
+  }
+},
     "footer": {
       "contactTitle": "Contactez-moi",
       "contactDescription": "Si vous avez des questions ou des retours, n'hésitez pas à me contacter.",

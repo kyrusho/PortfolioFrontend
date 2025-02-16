@@ -14,6 +14,7 @@ import databaseIcon from './assets/database.png';
 import gitIcon from './assets/git.png';
 import javaIcon from './assets/java.png';
 import ProjectList from './ProjectList';
+import { useNavigate } from 'react-router-dom';
 
 const Welcome: React.FC = (): JSX.Element => {
   const { t } = useTranslation();
@@ -43,7 +44,11 @@ const Welcome: React.FC = (): JSX.Element => {
   };
 
   const [, setIsHaitham] = useState<boolean>(false);
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate('/travels');
+  };
   useEffect(() => {
     const fetchUserRoles = async () => {
       const accessToken = localStorage.getItem('access_token');
@@ -109,8 +114,13 @@ const Welcome: React.FC = (): JSX.Element => {
             <div className="infoWrapper">
               <h2>{t('welcomePage.bioSection.bioTitle')}</h2>
               <p>{t('welcomePage.bioSection.bioDescription')}</p>
+              <button onClick={handleClick} className="travelButton">
+      {t('travelPage.learnMore')}
+    </button>
+              
             </div>
           </div>
+          
         </div>
 
         <div className="section-divider"></div>  {/* Divider here */}

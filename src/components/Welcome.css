@@ -10,6 +10,40 @@
     box-shadow: 0px 8px 15px rgba(255, 105, 180, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
 }
+.travelButton {
+    background-color: #f7a9c4;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(255, 105, 180, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    position: relative; /* Ensure these sections are on top */
+    z-index: 2; /* Make sure they are above the butterflies */
+}
+
+.travelButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 12px 20px rgba(255, 105, 180, 0.6);
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+.arrow {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.emoji {
+    font-size: 3rem;
+    margin-top: 50px;
+}
 
 .section-divider {
     width: 80%;
