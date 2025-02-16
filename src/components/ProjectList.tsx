@@ -142,14 +142,20 @@ const ProjectList: React.FC = (): JSX.Element => {
                 </div>
 
                 {isZako && (
-  <div className="d-flex justify-content-end mb-2">
-    <button
-      className="btn btn-danger btn-sm"
-      onClick={() => handleDeleteProject(project.projectId)}
-    >
-      ❌
-    </button>
-  </div>
+ <div className="d-flex justify-content-between mb-2">
+ <button
+   className="btn btn-secondary btn-sm btn-circle"
+   onClick={() => handleUpdateProject(project.projectId)}
+ >
+   ✏️
+ </button>
+ <button
+   className="btn btn-danger btn-sm btn-circle"
+   onClick={() => handleDeleteProject(project.projectId)}
+ >
+   ❌
+ </button>
+</div>
 )}
 
               </div>
