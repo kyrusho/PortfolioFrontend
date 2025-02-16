@@ -84,9 +84,10 @@ const ProjectList: React.FC = (): JSX.Element => {
     <div>
       <div className="d-flex justify-content-between align-items-center mb-4">
         {isZako && (
-          <button className="btn btn-primary" onClick={handleAddProject}>
-            {t('add')}
-          </button>
+          <button className="btn btn-success btn-circle" onClick={handleAddProject}>
+          +
+        </button>
+        
         )}
       </div>
       <div className="row">
@@ -94,14 +95,7 @@ const ProjectList: React.FC = (): JSX.Element => {
           projects.map((project) => (
             <div className="col-md-6 mb-4" key={project.projectId}>
               {isZako && (
-                <div className="d-flex justify-content-end mb-2">
-                  <button
-                    className="btn btn-secondary btn-sm"
-                    onClick={() => handleUpdateProject(project.projectId)}
-                  >
-                    {t('update')}
-                  </button>
-                </div>
+            
               )}
               <div className="card project-card">
                 <div className="card-img-wrapper">
