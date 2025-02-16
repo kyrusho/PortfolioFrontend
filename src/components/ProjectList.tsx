@@ -94,9 +94,7 @@ const ProjectList: React.FC = (): JSX.Element => {
         {projects.length > 0 ? (
           projects.map((project) => (
             <div className="col-md-6 mb-4" key={project.projectId}>
-              {isZako && (
-            
-              )}
+             
               <div className="card project-card">
                 <div className="card-img-wrapper">
                   <a 
