@@ -153,11 +153,12 @@ const ProjectList: React.FC = (): JSX.Element => {
    ✏️
  </button>
  <button
-   className="btn btn-danger btn-sm btn-circle"
-   onClick={() => handleDeleteProject(project.projectId)}
- >
-   ❌
- </button>
+  className="btn btn-danger btn-sm btn-circle"
+  onClick={() => handleDeleteProject(project.projectId.toString())} // Convert to string here
+>
+  ❌
+</button>
+
 </div>
 )}
 
