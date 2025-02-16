@@ -14,16 +14,19 @@ const ProjectList: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
   const { t } = useTranslation();  // Using the translation hook
-  const handleDeleteProject = async (projectId: number) => {
+  const handleDeleteProject = async (projectId: string) => {
     if (window.confirm("Are you sure you want to delete this project?")) {
       try {
         await deleteProject(projectId);
-        setProjects((prevProjects) => prevProjects.filter(p => p.projectId !== projectId));
+        setProjects((prevProjects) => 
+          prevProjects.filter(p => p.projectId !== parseInt(projectId))
+        );
       } catch (error) {
         console.error("Error deleting project:", error);
       }
     }
   };
+  
   useEffect(() => {
     const fetchUserRoles = async () => {
       const accessToken = localStorage.getItem('access_token');
