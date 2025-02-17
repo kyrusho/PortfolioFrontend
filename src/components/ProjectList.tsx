@@ -99,14 +99,12 @@ const ProjectList: React.FC = (): JSX.Element => {
                 <div className="card-img-wrapper">
                   <a 
                     href={
-                      project.projectName === "NoodleStar" 
-                        ? "https://github.com/Sunveerg/Noodle-Star" 
-                        : project.projectName === "Football Heritage" 
-                        ? "https://github.com/Zako563/FootballDomain" 
-                        : project.projectName === "Artwork Project"
-                        ? "https://github.com/Zako563/ArtworkProject"
-                        : project.projectName === "Portfolio Website"
-                        ? "https://github.com/Zako563/Portfolio"
+                      project.projectName === "Nouilles Star" 
+                        ? "https://plankton-app-v6rpd.ondigitalocean.app/home" 
+                        : project.projectName === "Pokemon World" 
+                        ? "https://github.com/kyrusho/PokemonWorld" 
+                        : project.projectName === "Champlain PetClinic"
+                        ? "https://github.com/cgerard321/champlain_petclinic"
                         : "#"
                     } 
                     target="_blank" 
