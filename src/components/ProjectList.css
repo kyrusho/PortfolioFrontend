@@ -1,15 +1,15 @@
 .project-card {
     cursor: pointer;
-    border-radius: 15px; /* Reduced border-radius */
+    border-radius: 15px; 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     background: linear-gradient(135deg, #6a11cb, #2575fc); 
     position: relative;
-    width: 80%; /* Reduced width for smaller containers */
-    max-width: 500px; /* Added max-width for limiting container size */
+    width: 80%;
+    max-width: 500px; 
     height: auto;
-    padding: 15px; /* Reduced padding */
+    padding: 15px; 
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -33,14 +33,14 @@
 }
 
 .project-card:hover {
-    transform: scale(1.05); /* Subtle zoom effect */
+    transform: scale(1.05); 
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .card-img-wrapper {
-    height: 200px; /* Reduced height */
+    height: 200px;
     overflow: hidden;
-    border-radius: 10px; /* Reduced border-radius */
+    border-radius: 10px; 
     position: relative;
 }
 
@@ -52,16 +52,16 @@
 }
 
 .project-card:hover .project-image {
-    transform: scale(1.1); /* Add depth to the image */
+    transform: scale(1.1); 
 }
 
 .card-body {
     text-align: center;
-    padding: 15px; /* Reduced padding */
+    padding: 15px; 
 }
 
 .project-name {
-    font-size: 1.8rem; /* Reduced font size */
+    font-size: 1.8rem; 
     font-weight: bold;
     margin-bottom: 10px; /* Reduced margin */
     color: #ffffff; /* Dark text for readability */

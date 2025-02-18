@@ -10,7 +10,7 @@ import { deleteProject } from "../axios/deleteProject";
 
 const ProjectList: React.FC = (): JSX.Element => {
   const [projects, setProjects] = useState<projectResponseModel[]>([]);
-  const [isZako, setIsZako] = useState<boolean>(false); // State to check if the user has the "Zako" role
+  const [isHaitham, setisHaitham] = useState<boolean>(false); 
   const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
   const { t } = useTranslation();  // Using the translation hook
@@ -32,7 +32,7 @@ const ProjectList: React.FC = (): JSX.Element => {
       const accessToken = localStorage.getItem('access_token');
       if (!accessToken) {
         console.error('No access token found');
-        setIsZako(false);
+        setisHaitham(false);
         return;
       }
 
@@ -41,10 +41,10 @@ const ProjectList: React.FC = (): JSX.Element => {
         const decodedPayload = JSON.parse(atob(base64Url));
         const roles = decodedPayload['https://portfolio/roles'] || []; // Replace with your namespace
 
-        setIsZako(roles.includes('Haitham')); // Check if the user has the "Zako" role
+        setisHaitham(roles.includes('Haitham')); 
       } catch (err) {
         console.error('Error decoding user roles:', err);
-        setIsZako(false);
+        setisHaitham(false);
       }
     };
 
@@ -83,7 +83,7 @@ const ProjectList: React.FC = (): JSX.Element => {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        {isZako && (
+        {isHaitham && (
           <button className="btn btn-success btn-circle" onClick={handleAddProject}>
           +
         </button>
@@ -134,7 +134,7 @@ const ProjectList: React.FC = (): JSX.Element => {
                   </div>
                 </div>
 
-                {isZako && (
+                {isHaitham && (
  <div className="d-flex justify-content-between mb-2">
  <button
    className="btn btn-secondary btn-sm btn-circle"

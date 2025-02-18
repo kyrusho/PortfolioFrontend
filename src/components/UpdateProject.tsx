@@ -15,23 +15,21 @@ const UpdateProject: React.FC = (): JSX.Element => {
   const [skills, setSkills] = useState<skillResponseModel[]>([]);
   const [selectedSkills, setSelectedSkills] = useState<skillResponseModel[]>([]);
   const navigate = useNavigate();
-  const { t } = useTranslation(); // Using the translation hook
+  const { t } = useTranslation(); 
 
   useEffect(() => {
     const fetchProjectAndSkills = async (): Promise<void> => {
       try {
         if (!projectId) return;
 
-        // Fetch project details
         const project: projectResponseModel = await getProject(projectId);
         setProjectName(project.projectName);
         setIconUrl(project.iconUrl);
         setGitRepo(project.gitRepo);
-        setSelectedSkills(project.skills || []); // Ensure selectedSkills is always an array
+        setSelectedSkills(project.skills || []); 
 
-        // Fetch all skills
         const fetchedSkills = await getAllSkills();
-        setSkills(fetchedSkills || []); // Ensure skills is always an array
+        setSkills(fetchedSkills || []); 
       } catch (error) {
         console.error('Error fetching project or skills:', error);
       }
